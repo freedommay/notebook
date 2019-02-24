@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--构造器注入初始化 -->
+    <bean id="cdPlayer" class="soundsystem.xmlconfig.CDPlayer" primary="true"
+        c:cd-ref="compactDisc" />  <!--primary属性标示首选的bean，消除歧义；在Java配置中可用@Primary -->
+    <bean id="compactDisc" class="soundsystem.xmlconfig.SgtPeppers" />
+    <!--设置属性方式 -->
+    <bean id="cdPlayer2" class="soundsystem.xmlconfig.CDPlayer2">
+        <property name="compactDisc" ref="compactDisc" />
+     </bean>
+</beans>
